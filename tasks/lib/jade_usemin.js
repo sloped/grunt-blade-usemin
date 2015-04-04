@@ -119,7 +119,7 @@ exports.task = function (grunt) {
             _.each(file.src, function (src) {
                 grunt.log.writeln('Processing jade file', src);
                 //skip non-jade files (could be re-written)
-                if (path.extname(src) !== '.jade') {
+                if (path.extname(src) !== '.blade.php') {
                     return grunt.log.warn('Not processing %s because of unsupported extension: %s', src);
                 }
                 //get actual file contents
