@@ -11,10 +11,10 @@ var slash = require('slash');
 var getFileSrc = function (str, type) {
     var result;
     if (type === 'js') {
-        result = str.match(/script.+src\s*=\s*['"]([^"']+)['"]/mi);
+        result = str.match(/{!!\s+HTML::script\('(\S+)'\)\s+!!}/i);
     }
     if (type === 'css') {
-        result = str.match(/link.+href\s*=\s*['"]([^"']+)['"]/mi);
+        result = str.match(/{!!\s+HTML::style\('(\S+)'\)\s+!!}/i);
     }
 
     return (result || [])[1];
